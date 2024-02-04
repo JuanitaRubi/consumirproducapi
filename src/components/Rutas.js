@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import {Error} from "./Error";
 import { Inicio } from "./Inicio";
 import { Menu } from "./Menu";
+import { Producinicio } from "./Producinicio";
 
 export function Rutas (){
     return(
@@ -11,6 +12,7 @@ export function Rutas (){
             <Routes>
                 <Route path="*" element={<Error/>}></Route>
                 <Route path="/" element={<Inicio/>}></Route>
+                <Route path="$" element={<Producinicio/>}></Route>
 
             </Routes>
         </BrowserRouter>

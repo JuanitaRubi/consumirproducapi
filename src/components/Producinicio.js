@@ -6,7 +6,7 @@ export function Producinicio(){
     const [dataProducto, setDataProducto]=useState([]);
 
     useEffect(()=>{
-        axios.get("http://localhost:3000/api/mostrarProductos")//url de productos
+        axios.get("http://localhost:3500/api/mostrarProductos")//url de productos
         .then((respuesta)=>{
             console.log(respuesta);
             setDataProducto(respuesta.data);
@@ -19,7 +19,7 @@ export function Producinicio(){
     const listaProductos=dataProducto.map((producto)=>{
         var editar="/editar/"+producto.id;
         var borrar="/borrar/"+producto.id;
-        var foto="url de foto"+producto.foto;
+        var foto="http://localhost:3500/images/"+producto.foto;
         return(
             <tr>
                 <td>{producto.id}</td>
