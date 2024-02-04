@@ -21,7 +21,7 @@ export function Producinicio(){
         var borrar="/borrar/"+producto.id;
         var foto="http://localhost:3500/images/"+producto.foto;
         return(
-            <tr>
+            <tr className="aling-middle">
                 <td>{producto.id}</td>
                 <td>{producto.nombre}</td>
                 <td>{producto.producto}</td>
@@ -34,7 +34,7 @@ export function Producinicio(){
         );
     });
     return(
-        <table>
+        <table className="table table-hover">
             <thead>
                 <tr>
                     <th>id</th>
