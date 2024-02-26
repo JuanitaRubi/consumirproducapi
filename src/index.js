@@ -1,13 +1,14 @@
 import React from "react";
-import ReactDOM  from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import { Rutas } from "./components/Rutas";
+import { Menu } from "./components/Menu";
 
 const root=ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <>
-
-
-        <Rutas/>
+              
+        <Rutas />
+        
     </>
-)
+);

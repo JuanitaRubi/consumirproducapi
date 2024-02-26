@@ -1,34 +1,33 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { URL_API, URL_IMAGES } from "../config/rutas";
 
 export function Producinicio(){
     const [dataProducto, setDataProducto]=useState([]);
 
     useEffect(()=>{
-        axios.get("http://localhost:3500/api/mostrarProductos")//url de productos
+        axios.get(URL_API+"mostrarProductos")//url de productos
         .then((respuesta)=>{
             console.log(respuesta);
             setDataProducto(respuesta.data);
         })
         .catch((err)=>{
-            console.log("Error al recuperar del api" +err);
+            console.log("Error al recuperar de API" +err);
         });
     },[]);
 
     const listaProductos=dataProducto.map((producto)=>{
-        var editar="/editar/"+producto.id;
-        var borrar="/borrar/"+producto.id;
-        var foto="http://localhost:3500/images/"+producto.foto;
+        var editar="/EditarProducto/"+producto.id;
+        var borrar="/BorrarProducto/"+producto.id;
+        var foto=URL_IMAGES+producto.foto;
         return(
-            <tr className="aling-middle">
+            <tr key={producto.id}className="aling-middle">
                 <td>{producto.id}</td>
                 <td>{producto.nombre}</td>
-                <td>{producto.producto}</td>
+                <td>{producto.precio}</td>
                 <td><img src={foto} width="100px" alt={`foto de ${producto.nombre}`} /></td>
                 <td>
-                    <Link to={editar}>Editar</Link>
-                    <Link to={borrar}>Borrar</Link>
+                    <a href={editar}>Editar</a> / <a href={borrar}>Borrar</a>
                 </td>
             </tr>
         );
@@ -39,7 +38,7 @@ export function Producinicio(){
                 <tr>
                     <th>id</th>
                     <th>Nombre</th>
-                    <th>Producto</th>
+                    <th>Precio</th>
                     <th>Foto</th>
                 </tr>
             </thead>
